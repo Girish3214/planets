@@ -1,0 +1,65 @@
+.title {
+  display: inline-block;
+  font-size: 1.25rem;
+  color: var(--primary);
+  font-weight: 600;
+  margin: 0;
+}
+
+.image-container {
+  display: inline-block;
+}
+.planet-container {
+  margin: 2rem;
+  display: inline-block;
+  height: 18rem;
+  width: 12rem;
+  border: 3px solid darkorange;
+  border-radius: 7px;
+}
+
+.result-card {
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.result-card .poster-wrapper img,
+.filler-poster {
+  width: 11.5rem;
+  height: 10rem;
+  background-color: #dbdada;
+  padding: 3px;
+  border-radius: 7px;
+  display: block;
+  color: transparent;
+}
+
+.result-card .info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.result-card .info .title {
+  padding-left: 5px;
+  font-size: 1.25rem;
+  color: var(--primary);
+  font-weight: 600;
+  margin: 0;
+}
+
+.img {
+  width: 12rem;
+  height: 230px;
+}
+
+.FAW {
+  float: right;
+  margin-right: 10px;
+}
+
+.FAW-red {
+  float: right;
+  margin-right: 10px;
+  color: rgb(238, 205, 61);
+}
