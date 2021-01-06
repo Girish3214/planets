@@ -17,7 +17,7 @@ const Nav = () => {
             </li>
             <li>
               <NavLink exact to="/favourites">
-                favourite
+                Favourite
               </NavLink>
             </li>
           </ul>

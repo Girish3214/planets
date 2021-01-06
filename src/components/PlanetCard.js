@@ -2,12 +2,12 @@ import React, { useContext } from "react";
 import { GlobalContext } from "../context/GlobalState";
 
 const PlanetCard = ({ p, name, favDisable, id }) => {
-  const { removePlanetFromList } = useContext(GlobalContext);
+  const { removePlanetFromList, planetImage } = useContext(GlobalContext);
 
   return (
     <div className="result-card">
       <div className="planet-container poster-wrapper img">
-        <img className="img" src={p} alt={`${name}`} />
+        <img className="img" src={planetImage(name)} alt={`${name}`} />
 
         <div className="info">
           <div className="header">
