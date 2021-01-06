@@ -7,18 +7,19 @@ import FavouriteList from "./components/FavouriteList";
 import { GlobalProvider } from "./context/GlobalState";
 
 const App = () => {
+  let x = 0;
   return (
     <GlobalProvider>
       <div>
-        <div>
-          <Router>
-            <Nav />
-            <Switch>
-              <Route path="/" exact component={Home} />
-              <Route path="/favourites" exact component={FavouriteList} />
-            </Switch>
-          </Router>
-        </div>
+        <Router>
+          <Nav />
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/favourites" exact>
+              <FavouriteList key={(x = x + 1)} />
+            </Route>
+          </Switch>
+        </Router>
       </div>
     </GlobalProvider>
   );

@@ -53,10 +53,29 @@
   height: 230px;
 }
 
-.FAW {
+.FAW,
+.FAW-red {
   background: none;
   border: none;
   float: right;
   margin-top: 7px;
   margin-right: 10px;
+}
+
+.FAW-red {
+  color: gold;
+}
+
+.header h1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  font-size: 2rem;
+}
+
+.empty-list {
+  color: #c4c4c4;
+  font-size: 3rem;
+  text-align: center;
 }

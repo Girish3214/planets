@@ -6,6 +6,13 @@ const AppReducer = (state, action) => {
         FavouritePlanets: [action.payload, ...state.FavouritePlanets],
       };
 
+    case "REMOVE_PLANET_FROM_LIST":
+      return {
+        ...state,
+        FavouritePlanets: state.FavouritePlanets.filter(
+          (planet) => planet.id !== action.payload
+        ),
+      };
     default:
       return state;
   }

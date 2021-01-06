@@ -23,9 +23,17 @@ export const GlobalProvider = (props) => {
     dispatch({ type: "ADD_PLANET_TO_LIST", payload: planet });
   };
 
+  const removePlanetFromList = (id) => {
+    dispatch({ type: "REMOVE_PLANET_FROM_LIST", payload: id });
+  };
+
   return (
     <GlobalContext.Provider
-      value={{ FavouritePlanets: state.FavouritePlanets, addPlanetToList }}
+      value={{
+        FavouritePlanets: state.FavouritePlanets,
+        addPlanetToList,
+        removePlanetFromList,
+      }}
     >
       {props.children}
     </GlobalContext.Provider>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useContext } from "react";
 import "../App.css";
 import { planets } from "../config";
 import "../styles/planets.css";
@@ -55,17 +55,12 @@ const Planet = ({ planet }) => {
   return (
     <div className="result-card">
       <div className="planet-container poster-wrapper img">
-        <img
-          className="img"
-          src={p}
-          alt={`${name}`}
-          onClick={() => addPlanetToList(planet)}
-        />
+        <img className="img" src={p} alt={`${name}`} />
 
         <div className="info">
           <div className="header">
             <h3 className="title">{name}</h3>
-            {
+            {!favDisable ? (
               <button
                 className="FAW"
                 disabled={favDisable}
@@ -73,9 +68,19 @@ const Planet = ({ planet }) => {
                   addPlanetToList(planet);
                 }}
               >
-                Add to Fav
+                <i className="fa fa-star-o fa-2x FAW"></i>
               </button>
-            }
+            ) : (
+              <button
+                className="FAW"
+                disabled={favDisable}
+                onClick={() => {
+                  addPlanetToList(planet);
+                }}
+              >
+                <i className="fa fa-star fa-2x FAW-red"></i>
+              </button>
+            )}
           </div>
         </div>
       </div>
