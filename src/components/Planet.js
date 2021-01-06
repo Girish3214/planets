@@ -1,9 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import "../App.css";
 import { planets } from "../config";
 import "../styles/planets.css";
-const Planet = ({ id, isFavourite, name }) => {
-  const [fav, setFav] = useState(isFavourite);
+
+import { GlobalContext } from "../context/GlobalState";
+
+const Planet = ({ planet }) => {
+  let { name } = planet;
+
+  const { addPlanetToList, FavouritePlanets } = useContext(GlobalContext);
+  let storedPlanet = FavouritePlanets.find((p) => p.id === planet.id);
+  const favDisable = storedPlanet ? true : false;
+
   let p;
 
   switch (name) {
@@ -44,16 +52,6 @@ const Planet = ({ id, isFavourite, name }) => {
       break;
   }
 
-  const changeFav = () => {
-    isFavourite = !isFavourite;
-    console.log(fav);
-    setFav(isFavourite);
-  };
-
-  useEffect(() => {
-    changeFav();
-  }, []);
-
   return (
     <div className="result-card">
       <div className="planet-container poster-wrapper img">
@@ -61,21 +59,23 @@ const Planet = ({ id, isFavourite, name }) => {
           className="img"
           src={p}
           alt={`${name}`}
-          onClick={() => changeFav()}
+          onClick={() => addPlanetToList(planet)}
         />
 
         <div className="info">
           <div className="header">
             <h3 className="title">{name}</h3>
-            {fav ? (
-              <button className="FAW" onClick={() => changeFav()}>
-                <i className="fa fa-star-o fa-2x FAW"></i>
+            {
+              <button
+                className="FAW"
+                disabled={favDisable}
+                onClick={() => {
+                  addPlanetToList(planet);
+                }}
+              >
+                Add to Fav
               </button>
-            ) : (
-              <button className="FAW-red" onClick={() => changeFav()}>
-                <i className="fa fa-star fa-2x FAW-red"></i>
-              </button>
-            )}
+            }
           </div>
         </div>
       </div>

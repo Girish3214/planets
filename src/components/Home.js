@@ -18,12 +18,7 @@ const Home = () => {
     <div>
       <div className="container">
         {data.map((d) => (
-          <Planet
-            key={d.id}
-            id={d.id}
-            isFavourite={d.isFavourite}
-            name={d.name}
-          />
+          <Planet key={d.id} planet={d} />
         ))}
       </div>
     </div>
