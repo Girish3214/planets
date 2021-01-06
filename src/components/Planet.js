@@ -3,6 +3,7 @@ import "../App.css";
 import { planets } from "../config";
 import "../styles/planets.css";
 const Planet = ({ id, isFavourite, name }) => {
+  const [fav, setFav] = useState(isFavourite);
   let p;
 
   switch (name) {
@@ -43,18 +44,37 @@ const Planet = ({ id, isFavourite, name }) => {
       break;
   }
 
+  const changeFav = () => {
+    isFavourite = !isFavourite;
+    console.log(fav);
+    setFav(isFavourite);
+  };
+
+  useEffect(() => {
+    changeFav();
+  }, []);
+
   return (
     <div className="result-card">
       <div className="planet-container poster-wrapper img">
-        <img className="img" src={p} alt={`${name}`} />
+        <img
+          className="img"
+          src={p}
+          alt={`${name}`}
+          onClick={() => changeFav()}
+        />
 
         <div className="info">
           <div className="header">
             <h3 className="title">{name}</h3>
-            {isFavourite ? (
-              <i className="fa fa-star-o fa-2x FAW"></i>
+            {fav ? (
+              <button className="FAW" onClick={() => changeFav()}>
+                <i className="fa fa-star-o fa-2x FAW"></i>
+              </button>
             ) : (
-              <i className="fa fa-star fa-2x FAW-red"></i>
+              <button className="FAW-red" onClick={() => changeFav()}>
+                <i className="fa fa-star fa-2x FAW-red"></i>
+              </button>
             )}
           </div>
         </div>

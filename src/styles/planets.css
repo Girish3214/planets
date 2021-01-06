@@ -53,13 +53,15 @@
   height: 230px;
 }
 
-.FAW {
+.FAW,
+.FAW-red {
+  background: none;
+  padding-left: 7px;
+  border: none;
   float: right;
   margin-right: 10px;
 }
 
 .FAW-red {
-  float: right;
-  margin-right: 10px;
   color: rgb(238, 205, 61);
 }
