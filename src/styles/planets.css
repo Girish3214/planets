@@ -1,16 +1,14 @@
 .title {
   display: inline-block;
-  font-size: 1.25rem;
-  color: var(--primary);
-  font-weight: 600;
-  margin: 0;
+  margin-top: 10px;
 }
 
 .image-container {
   display: inline-block;
 }
 .planet-container {
-  margin: 2rem;
+  background-color: whitesmoke;
+  margin: 1.5rem;
   display: inline-block;
   height: 18rem;
   width: 12rem;
@@ -30,7 +28,6 @@
   padding: 3px;
   border-radius: 7px;
   display: block;
-  color: transparent;
 }
 
 .result-card .info {
@@ -42,9 +39,7 @@
 .result-card .info .title {
   padding-left: 5px;
   font-size: 1.25rem;
-  color: var(--primary);
   font-weight: 600;
-  margin: 0;
 }
 
 .img {
@@ -57,7 +52,7 @@
   background: none;
   border: none;
   float: right;
-  margin-top: 7px;
+  margin-top: 5px;
   margin-right: 10px;
 }
 
