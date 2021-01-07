@@ -1,30 +1,42 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Planet from "../components/Planet";
+import Loading from "../components/Loading";
 
 const Home = () => {
   const [data, setdata] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    const DataView = async () => {
+  const DataView = async () => {
+    try {
+      await axios
+        .get("https://assignment-machstatz.herokuapp.com/planet")
+        .then((res) => {
+          setdata(res.data);
+        });
       setLoading(true);
-      const planetData = await axios.get(
-        "https://assignment-machstatz.herokuapp.com/planet"
-      );
-      setdata(planetData.data);
-    };
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
     DataView();
-    setLoading(false);
+    // setLoading(false);
   }, []);
   return (
     <div>
-      {/* {loading ? "true" : console.log(loading)} */}
-      <div className="container">
-        {data.map((d) => (
-          <Planet key={d.id} planet={d} />
-        ))}
-      </div>
+      {loading ? (
+        <div className="container">
+          {data.map((d) => (
+            <Planet key={d.id} planet={d} />
+          ))}
+        </div>
+      ) : (
+        <div>
+          <Loading />
+        </div>
+      )}
     </div>
   );
 };
